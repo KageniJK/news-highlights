@@ -12,7 +12,7 @@ def get_news(category):
     :param category:
     :return:
     """
-    get_news_url = base_url.format(category, apikey)
+    get_news_url = base_url.format(category, api_key)
 
     with urllib.request.urlopen(get_news_url) as url:
         get_news_data = url.read()
@@ -36,8 +36,14 @@ def process_results(news_list):
     news_results = []
 
     for news_item in news_list:
-        source = 
-        title =
-        description =
-        picture =
-        time =
+        source = news_item.get('source.name')
+        title = news_item.get('title')
+        author = news_item.get('author')
+        description = news_item.get('description')
+        picture = news_item.get('urlToImage')
+        time = news_item.get('publishedAt')
+
+        news_object = News(source,title,author,description,picture,time)
+        news_results.append(news_object)
+
+    return news_results
