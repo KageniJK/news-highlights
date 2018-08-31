@@ -1,9 +1,14 @@
-from app import app
 import urllib.request, json
+from .models import News_article
 
-api_key = app.config[NEWS_API]
+api_key =  None
 
-base_url = app.config[NEWS_BASE_URL]
+base_url = None
+
+def configure_request(app):
+    global api_key, base_url
+    api_key = app.config['NEWS_API']
+    base_url = app.config['NEWS_BASE_URL']
 
 
 def get_news(category):
@@ -18,13 +23,14 @@ def get_news(category):
         get_news_data = url.read()
         get_news_response = json.loads(get_news_data)
 
-        news_results=None
+        news_results= None
 
         if get_news_response['results']:
             news_results_list = get_news_response['results']
             news_results = process_results(news_results_list)
 
         return news_results
+
 
 def process_results(news_list):
     """
@@ -43,7 +49,7 @@ def process_results(news_list):
         picture = news_item.get('urlToImage')
         time = news_item.get('publishedAt')
 
-        news_object = News(source,title,author,description,picture,time)
+        news_object = News_article(source, title, author, description, picture, time)
         news_results.append(news_object)
 
     return news_results
