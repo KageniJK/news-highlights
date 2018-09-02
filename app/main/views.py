@@ -10,7 +10,7 @@ def index():
     :return:
     """
 
-    news_highlights = get_news('top-headlines?country=us&')
+    news_highlights = get_news('top-headlines?country=us', api_key)
     print(news_highlights)
     title = 'Highlights - News app'
     return render_template('index.html', title=title)
