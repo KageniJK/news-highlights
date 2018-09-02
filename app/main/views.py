@@ -1,8 +1,9 @@
 from flask import render_template
-from app import app
-from app.requests import get_news
+from ..requests import get_news
+from . import main
+from ..models import News_article
 
-@app.route('/')
+@main.route('/')
 def index():
     """
     View root page
