@@ -10,6 +10,6 @@ def index():
     :return:
     """
 
-    news_highlights = get_news()
-    title = 'Highlights - News app'
-    return render_template('index.html', title=title)
+    articles = get_news()
+    title = 'highlights - News app'
+    return render_template('index.html', title=title , articles = articles)

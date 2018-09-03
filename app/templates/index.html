@@ -3,10 +3,9 @@
 {% block content %}
 <h3>News highlights</h3>
 
-
 {% for article in articles %}
 <ul>
-    <li>{{news_list}}</li>
+    <li>{{article.title}}</li>
 </ul>
 {% endfor %}
 
