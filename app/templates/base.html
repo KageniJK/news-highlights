@@ -1,8 +1,13 @@
-<!DOCTYPE html>
+{% extends 'bootstrap/base.html'%}
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>1</title>
+    {% if title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title>News app</title>
+    {% endif %}
 </head>
 <body>
     {% block content %}

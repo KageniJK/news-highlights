@@ -3,6 +3,7 @@ from ..requests import get_news
 from . import main
 from ..models import News_article
 
+
 @main.route('/')
 def index():
     """

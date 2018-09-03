@@ -3,9 +3,19 @@
 {% block content %}
 <h3>News highlights</h3>
 
+{% block styles %}
+    {{super()}}
+<link rel="stylesheet" href="{{url_for('static',filename = 'index.css')}}">
+{% endblock %}
 {% for article in articles %}
 <ul>
-    <li>{{article.title}}</li>
+    <li>{{article.title}}
+        <ul>
+            <img src="{{article.picture}}" alt="image">
+            <li>{{article.source}}</li>
+            <li>{{article.description}}</li>
+        </ul>
+    </li>
 </ul>
 {% endfor %}
 
