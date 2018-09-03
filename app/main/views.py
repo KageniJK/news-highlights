@@ -14,3 +14,15 @@ def index():
     articles = get_news()
     title = 'highlights - News app'
     return render_template('index.html', title=title , articles = articles)
+
+
+@main.route('/sources')
+def source():
+    """
+    view sources page
+    :return:
+    """
+
+    sources = get_sources()
+    title = = 'News sources - News app'
+    return render_template('sources.html', title = title)
