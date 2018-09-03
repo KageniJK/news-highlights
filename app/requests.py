@@ -73,7 +73,7 @@ def get_sources():
 
         if get_sources_response['sources']:
             news__sources_results_list = get_sources_response['sources']
-            news_sources_results = process_results(news__sources_results_list)
+            news_sources_results = process_source_results(news__sources_results_list)
 
         return news_sources_results
 
