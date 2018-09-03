@@ -10,3 +10,13 @@ class News_article:
         self.description = description
         self.picture = picture
         self.time = time
+
+class News_source:
+    """
+    News source class
+    """
+
+    def __init__(self, name, link, category):
+        self.name = name
+        self.link = link
+        self.category = category

@@ -1,20 +1,22 @@
-import urllib.request, json
-from .models import News_article
+import urllib.request
+import json
+from .models import News_article, News_source
 
-api_key =  None
+api_key = None
 
 base_url = None
 
+
 def configure_request(app):
-    global api_key, base_url
+    global api_key, base_url, source_url
     api_key = app.config['NEWS_API_KEY']
     base_url = app.config['NEWS_BASE_URL']
+    source_url = app.config['SOURCES_URL']
 
 
 def get_news():
     """
     Getting the json response
-    :param category:
     :return:
     """
     get_news_url = base_url.format(api_key)
@@ -53,6 +55,8 @@ def process_results(news_list):
         news_results.append(news_object)
 
     return news_results
+
+
 def get_sources():
     """
     Gets a list of sources for the news
@@ -67,8 +71,28 @@ def get_sources():
 
         news_sources_results= None
 
-        if get_sources_response['articles']:
-            news__sources_results_list = get_sources_response['articles']
+        if get_sources_response['sources']:
+            news__sources_results_list = get_sources_response['sources']
             news_sources_results = process_results(news__sources_results_list)
 
         return news_sources_results
+
+
+def process_source_results(source_list):
+    """
+    Transforms the list into a list of objects
+    :param source_list:
+    :return:
+    """
+
+    news_sources_results = []
+
+    for source_item in source_list:
+        name = source_item.get('name')
+        link = source_item.get('url')
+        category = source_item.get('category')
+
+        news_source_object= News_source(name, link, category)
+        news_sources_results.append(news_source_object)
+
+    return news_sources_results

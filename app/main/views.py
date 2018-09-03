@@ -1,7 +1,7 @@
 from flask import render_template
-from ..requests import get_news
+from ..requests import get_news, get_sources
 from . import main
-from ..models import News_article
+
 
 
 @main.route('/')
@@ -24,5 +24,5 @@ def source():
     """
 
     sources = get_sources()
-    title = = 'News sources - News app'
-    return render_template('sources.html', title = title)
+    title = 'News sources - News app'
+    return render_template('sources.html', title = title, sources = sources)
