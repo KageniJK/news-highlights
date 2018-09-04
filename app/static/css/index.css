@@ -1,6 +1,9 @@
-.card {
-    width:30rem;
-    border: 4px;
-    border-radius: 5px;
-    border-color: #000000;
+
+
+.card-img{
+    width: 29rem;
+}
+
+ul{
+    list-style-type: none;
 }
