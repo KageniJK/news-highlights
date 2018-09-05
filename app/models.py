@@ -22,3 +22,14 @@ class NewsSource:
         self.name = name
         self.link = link
         self.category = category
+
+class NewsItem:
+    """
+    News item for display of cual news article
+    """
+
+    def __init__(self, title, picture, article, source):
+        self.title = title
+        self.picture = picture
+        self.article = article
+        self.source = source

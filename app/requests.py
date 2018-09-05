@@ -1,6 +1,6 @@
 import urllib.request
 import json
-from .models import NewsArticle, NewsSource
+from .models import NewsArticle, NewsSource, NewsItem
 
 api_key = None
 
@@ -97,3 +97,5 @@ def process_source_results(source_list):
         news_sources_results.append(news_source_object)
 
     return news_sources_results
+
+
