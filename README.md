@@ -11,7 +11,7 @@
 3. Bootstrap
 4. News API
 
-###### the site is hosted on [Heroku](https://hapa-kule.herokuapp.com/)
+The site is hosted on [Heroku](https://hapa-kule.herokuapp.com/)
 
 
 This app is under an MIT [license](LICENSE)
